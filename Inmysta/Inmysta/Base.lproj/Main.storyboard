@@ -15,19 +15,8 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEm-1K-Dhd">
-                                <rect key="frame" x="159" y="408.66666666666669" width="75" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="tEm-1K-Dhd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JAU-bi-HFD"/>
-                            <constraint firstItem="tEm-1K-Dhd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wci-VD-hOG"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Fg-Gy-LPj"/>
                 </viewController>
