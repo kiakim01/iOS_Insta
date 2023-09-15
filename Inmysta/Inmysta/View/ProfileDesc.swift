@@ -10,7 +10,7 @@ import SnapKit
 
 class ProfileDesc : UIView {
     
-    let container: UIStackView = {
+    let containerStackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
         return view
@@ -48,24 +48,30 @@ class ProfileDesc : UIView {
     
     
     func configureUI(){
-        self.addSubview(container)
-        container.addSubview(firstLabel)
-        container.addSubview(secondLabel)
-        container.addSubview(thirdLabel)
+        self.addSubview(containerStackView)
+        containerStackView.addArrangedSubview(firstLabel)
+        containerStackView.addArrangedSubview(secondLabel)
+        containerStackView.addArrangedSubview(thirdLabel)
         
         
-//        container.backgroundColor = .systemYellow
-        container.snp.makeConstraints{ make in
+//        containerStackView.backgroundColor = .systemYellow
+        containerStackView.snp.makeConstraints{ make in
             make.width.equalTo(300)
             make.left.leftMargin.equalTo(25)
-            //contents 사이즈를 반영하도록 수정
-            make.height.equalTo(100)
+      //[desc] :stackView에 높이를 지정하게되면, 간격이 망가지는 상황이 발생, stackView가 어떻게든 공간을 채우려고 하기 때문
+//            make.height.equalTo(90)
         }
+        
+        //[desc] 간격 동일하게 셋팅
+//       containerStackView.distribution = .fillEqually
+        //[desc] 간격 지정
+        containerStackView.setCustomSpacing(20, after: firstLabel)
+        containerStackView.setCustomSpacing(20, after: secondLabel)
         
         
         firstLabel.font = .systemFont(ofSize: 17, weight: .semibold)
         firstLabel.snp.makeConstraints {make in
-            make.top.equalTo(container.snp.top).offset(10)
+            make.top.equalTo(containerStackView.snp.top).offset(10)
         }
         
         

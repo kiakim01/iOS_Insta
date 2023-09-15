@@ -11,8 +11,8 @@ import SnapKit
 class ViewController: UIViewController {
     
     //MARK: property
-
-
+    
+    
     
     let rightButton : UIBarButtonItem = {
         let button = UIBarButtonItem(image: UIImage(named: "menuIcon"), style: .plain, target: self, action: nil)
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     
     let imgProfile : UIImageView = {
         let img = UIImageView()
-//        img.image = UIImage()
+        //        img.image = UIImage()
         return img
     } ()
     
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         let profileCount = ProfileCount()
         return profileCount
     }()
-        
+    
     let descProfilBox : UIStackView = {
         let box = UIStackView()
         box.axis = .vertical
@@ -58,10 +58,10 @@ class ViewController: UIViewController {
         return profileDesc
     }()
     
-
+    
     let buttonBox : UIView = {
         let box = UIView()
-//        box.axis = .horizontal
+        //        box.axis = .horizontal
         return box
     }()
     
@@ -70,20 +70,30 @@ class ViewController: UIViewController {
         return section
     }()
     
+    let imageBox : UIView = {
+        let box = UIView()
+        return box
+    }()
+    
+    let customImageSection : ImageSection = {
+        let section = ImageSection()
+        return section
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        title = "사용자 이름이 뜨게할꺼야" // 모든 타이틀을 셋팅
+        //        title = "사용자 이름이 뜨게할꺼야" // 모든 타이틀을 셋팅
         navigationController?.navigationBar.topItem?.title = "사용자 이름"
-
+        
         
         self.navigationItem.rightBarButtonItem = self.rightButton
-//        self.navigationItem.rightBarButtonItem?.tintColor = .systemGray
-       ConfigureUI()
+        //        self.navigationItem.rightBarButtonItem?.tintColor = .systemGray
+        ConfigureUI()
         
         snapKitLayout()
         
-    
+        
     }
 }
 
@@ -93,49 +103,67 @@ extension ViewController{
     func ConfigureUI(){
         view.addSubview(contentsScrollView)
         contentsScrollView.addSubview(bodyStackView)
-        bodyStackView.addSubview(mainProfileBox)
-        bodyStackView.addSubview(descProfilBox)
-        bodyStackView.addSubview(buttonBox)
+        bodyStackView.addArrangedSubview(mainProfileBox)
+        bodyStackView.addArrangedSubview(descProfilBox)
+        bodyStackView.addArrangedSubview(buttonBox)
+        bodyStackView.addArrangedSubview(imageBox)
         mainProfileBox.addSubview(imgProfile)
         mainProfileBox.addSubview(cusotomProfileCount)
         descProfilBox.addSubview(customProfileDesc)
         buttonBox.addSubview(customButtonSection)
+        imageBox.addSubview(customImageSection)
+        
     }
- 
+    
     func snapKitLayout() {
-       contentsScrollView.backgroundColor = .systemGroupedBackground
+        //       contentsScrollView.backgroundColor = .systemGroupedBackground
         contentsScrollView.snp.makeConstraints{ make in
             make.left.right.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            
         }
-        
-        bodyStackView.backgroundColor =  .systemGray6
+        // 스크롤뷰를 컨텐츠 크기에 맞게 조정하기 위해서 바로 하위뷰인 bodystackView의 edge를 기준으로 잡음
+        contentsScrollView.contentLayoutGuide.snp.makeConstraints{ make in
+            make.edges.equalTo(bodyStackView)
+            
+        }
+        //스택뷰의 가로값을 지정
+        contentsScrollView.frameLayoutGuide.snp.makeConstraints{make in
+            make.width.equalTo(bodyStackView)
+            
+        }
+
+        //[Q]빈값인데 왜 없애면 이상해 지는지 ... ?
         bodyStackView.snp.makeConstraints { make in
-//            make.width.equalTo(100)
-            make.height.equalTo(1000)
-            make.centerX.equalToSuperview()
-            make.top.equalTo(contentsScrollView.snp.top).offset(0)
-            make.bottom.equalTo(contentsScrollView.snp.bottom).offset(-20)
-            make.left.right.equalToSuperview()
+
         }
         
-//        mainProfileBox.layer.borderWidth = 1
+
         mainProfileBox.snp.makeConstraints{ make in
-            make.top.equalTo(bodyStackView.snp.top).offset(20)
-            make.left.right.equalToSuperview()
             make.height.equalTo(150)
         }
         
-//        descProfilBox.backgroundColor = .systemGreen
-//        descProfilBox.layer.borderWidth = 1
+
         descProfilBox.snp.makeConstraints{ make in
-            make.top.equalTo(mainProfileBox.snp.bottom).offset(0)
-            make.left.right.equalToSuperview()
             //contents에 따라서 유동적으로 움직이도록 조정
             make.height.equalTo(90)
-      }
+        }
+        
 
+        buttonBox.snp.makeConstraints{ make in
+
+            make.height.equalTo(60)
+        }
+        
+        imageBox.backgroundColor = UIColor.systemYellow
+        imageBox.snp.makeConstraints{make in
+        }
+        
+        customImageSection.snp.makeConstraints{ make in
+            make.edges.equalToSuperview()
+        }
+        
         imgProfile.image = UIImage(named: "quokka")
         imgProfile.layer.cornerRadius = 45
         imgProfile.layer.masksToBounds = true
@@ -147,8 +175,8 @@ extension ViewController{
         }
         
         
-//        cusotomProfileCount.layer.borderWidth = 1
-//        profileCount.layer.borderColor = UIColor.blue.cgColor
+        //        cusotomProfileCount.layer.borderWidth = 1
+        //        profileCount.layer.borderColor = UIColor.blue.cgColor
         cusotomProfileCount.snp.makeConstraints{make in
             make.height.equalTo(88)
             make.centerY.equalToSuperview()
@@ -157,19 +185,13 @@ extension ViewController{
         }
         
         
-
-//        buttonBox.layer.borderWidth = 1
-        buttonBox.snp.makeConstraints{ make in
-            make.top.equalTo(descProfilBox.snp.bottom).offset(0)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(60)
-        }
-
-    
+        
+        
+        
         customButtonSection.snp.makeConstraints{ make in
             make.top.bottom.left.right.equalToSuperview()
         }
         
-
+        
     }
 }
