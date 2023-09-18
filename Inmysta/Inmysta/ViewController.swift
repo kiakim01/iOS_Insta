@@ -139,7 +139,7 @@ extension ViewController{
 
         }
         
-
+//        mainProfileBox.backgroundColor = UIColor.systemBlue
         mainProfileBox.snp.makeConstraints{ make in
             make.height.equalTo(150)
         }
@@ -156,7 +156,7 @@ extension ViewController{
             make.height.equalTo(60)
         }
         
-        imageBox.backgroundColor = UIColor.systemYellow
+//        imageBox.backgroundColor = UIColor.systemYellow
         imageBox.snp.makeConstraints{make in
         }
         
@@ -174,19 +174,20 @@ extension ViewController{
             make.left.equalTo(mainProfileBox.snp.left).offset(10)
         }
         
-        
-        //        cusotomProfileCount.layer.borderWidth = 1
-        //        profileCount.layer.borderColor = UIColor.blue.cgColor
+//        cusotomProfileCount.layer.borderWidth = 1
+//        let fullScreenWidth =  UIScreen.main.bounds.width
+//        let maxmumWidth: CGFloat = fullScreenWidth / 2
+//        [Fix] max-width 주기
+//        lessThanOrEqualTo
+//        greaterThanOrEqualTo
+//        cusotomProfileCount.backgroundColor = UIColor.red
         cusotomProfileCount.snp.makeConstraints{make in
             make.height.equalTo(88)
             make.centerY.equalToSuperview()
             make.right.equalTo(mainProfileBox.snp.right).offset(-10)
             make.left.equalTo(imgProfile.snp.right).offset(30)
         }
-        
-        
-        
-        
+
         
         customButtonSection.snp.makeConstraints{ make in
             make.top.bottom.left.right.equalToSuperview()
@@ -194,4 +195,4 @@ extension ViewController{
         
         
     }
-}
+} 

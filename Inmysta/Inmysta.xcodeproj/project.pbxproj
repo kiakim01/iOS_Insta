@@ -15,6 +15,11 @@
 		961870F12AB14CB000F6EB3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961870EF2AB14CB000F6EB3B /* LaunchScreen.storyboard */; };
 		961871142AB14F2C00F6EB3B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 961871132AB14F2C00F6EB3B /* SnapKit */; };
 		961871172AB1991E00F6EB3B /* TapBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961871162AB1991E00F6EB3B /* TapBar.swift */; };
+		961BA7872AB7E6A400FA57F4 /* ButtonSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BA7862AB7E6A400FA57F4 /* ButtonSectionView.swift */; };
+		961BA7892AB7E85400FA57F4 /* ProfileCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BA7882AB7E85400FA57F4 /* ProfileCountView.swift */; };
+		961BA78B2AB7ED6800FA57F4 /* ProfileDescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BA78A2AB7ED6800FA57F4 /* ProfileDescView.swift */; };
+		961BA78D2AB7EDFF00FA57F4 /* ImageSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BA78C2AB7EDFF00FA57F4 /* ImageSectionView.swift */; };
+		961BA7912AB7F30D00FA57F4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 961BA78F2AB7F30D00FA57F4 /* Model.xcdatamodeld */; };
 		961F60A82AB3DC55003CA0DC /* UIcolor+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F60A72AB3DC55003CA0DC /* UIcolor+CALayer.swift */; };
 		961F60AA2AB3E009003CA0DC /* ImageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F60A92AB3E009003CA0DC /* ImageSection.swift */; };
 		961F60AC2AB4242F003CA0DC /* imageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F60AB2AB4242F003CA0DC /* imageCell.swift */; };
@@ -33,6 +38,11 @@
 		961870F02AB14CB000F6EB3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		961870F22AB14CB000F6EB3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		961871162AB1991E00F6EB3B /* TapBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBar.swift; sourceTree = "<group>"; };
+		961BA7862AB7E6A400FA57F4 /* ButtonSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSectionView.swift; sourceTree = "<group>"; };
+		961BA7882AB7E85400FA57F4 /* ProfileCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCountView.swift; sourceTree = "<group>"; };
+		961BA78A2AB7ED6800FA57F4 /* ProfileDescView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDescView.swift; sourceTree = "<group>"; };
+		961BA78C2AB7EDFF00FA57F4 /* ImageSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSectionView.swift; sourceTree = "<group>"; };
+		961BA7902AB7F30D00FA57F4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		961F60A72AB3DC55003CA0DC /* UIcolor+CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIcolor+CALayer.swift"; sourceTree = "<group>"; };
 		961F60A92AB3E009003CA0DC /* ImageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSection.swift; sourceTree = "<group>"; };
 		961F60AB2AB4242F003CA0DC /* imageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCell.swift; sourceTree = "<group>"; };
@@ -76,8 +86,9 @@
 				961870E62AB14CAF00F6EB3B /* SceneDelegate.swift */,
 				961870E82AB14CAF00F6EB3B /* ViewController.swift */,
 				961F60A62AB3DC0D003CA0DC /* Utillty */,
-				961871152AB1990A00F6EB3B /* View */,
-				961870EA2AB14CAF00F6EB3B /* Main.storyboard */,
+				961871152AB1990A00F6EB3B /* Controller */,
+				961BA7832AB7E5D300FA57F4 /* View */,
+				961BA78E2AB7F2F300FA57F4 /* Model */,
 				961870ED2AB14CB000F6EB3B /* Assets.xcassets */,
 				961870EF2AB14CB000F6EB3B /* LaunchScreen.storyboard */,
 				961870F22AB14CB000F6EB3B /* Info.plist */,
@@ -85,7 +96,7 @@
 			path = Inmysta;
 			sourceTree = "<group>";
 		};
-		961871152AB1990A00F6EB3B /* View */ = {
+		961871152AB1990A00F6EB3B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				961871162AB1991E00F6EB3B /* TapBar.swift */,
@@ -95,7 +106,27 @@
 				961F60A92AB3E009003CA0DC /* ImageSection.swift */,
 				961F60AB2AB4242F003CA0DC /* imageCell.swift */,
 			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		961BA7832AB7E5D300FA57F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				961870EA2AB14CAF00F6EB3B /* Main.storyboard */,
+				961BA7862AB7E6A400FA57F4 /* ButtonSectionView.swift */,
+				961BA7882AB7E85400FA57F4 /* ProfileCountView.swift */,
+				961BA78A2AB7ED6800FA57F4 /* ProfileDescView.swift */,
+				961BA78C2AB7EDFF00FA57F4 /* ImageSectionView.swift */,
+			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		961BA78E2AB7F2F300FA57F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				961BA78F2AB7F30D00FA57F4 /* Model.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		961F60A62AB3DC0D003CA0DC /* Utillty */ = {
@@ -184,14 +215,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				961870E92AB14CAF00F6EB3B /* ViewController.swift in Sources */,
+				961BA7872AB7E6A400FA57F4 /* ButtonSectionView.swift in Sources */,
+				961BA7912AB7F30D00FA57F4 /* Model.xcdatamodeld in Sources */,
+				961BA7892AB7E85400FA57F4 /* ProfileCountView.swift in Sources */,
 				961F60A82AB3DC55003CA0DC /* UIcolor+CALayer.swift in Sources */,
 				961871172AB1991E00F6EB3B /* TapBar.swift in Sources */,
+				961BA78B2AB7ED6800FA57F4 /* ProfileDescView.swift in Sources */,
 				9635B0952AB29D8600AD9BCA /* ProfileCount.swift in Sources */,
 				9635B0992AB2E8C900AD9BCA /* ButtonSection.swift in Sources */,
 				961870E52AB14CAF00F6EB3B /* AppDelegate.swift in Sources */,
 				9635B0972AB2DFDB00AD9BCA /* ProfileDesc.swift in Sources */,
 				961F60AC2AB4242F003CA0DC /* imageCell.swift in Sources */,
 				961F60AA2AB3E009003CA0DC /* ImageSection.swift in Sources */,
+				961BA78D2AB7EDFF00FA57F4 /* ImageSectionView.swift in Sources */,
 				961870E72AB14CAF00F6EB3B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +463,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		961BA78F2AB7F30D00FA57F4 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				961BA7902AB7F30D00FA57F4 /* Model.xcdatamodel */,
+			);
+			currentVersion = 961BA7902AB7F30D00FA57F4 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 961870D92AB14CAF00F6EB3B /* Project object */;
 }
