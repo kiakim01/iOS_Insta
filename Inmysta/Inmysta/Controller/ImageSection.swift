@@ -11,7 +11,7 @@ import SnapKit
 
 class ImageSection: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    
+    let images = ["contentsImage1","contentsImage2","contentsImage3","contentsImage4","contentsImage5","contentsImage6","contentsImage7"]
 
     let container : UIStackView = {
         let stackview = UIStackView()
@@ -41,7 +41,10 @@ class ImageSection: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     }()
     
     let collectionView : UICollectionView = {
+        //cell이 그리드 혹은 리스트로 표시되도록 기본 동작을 제공
         let flowLayout = UICollectionViewFlowLayout()
+        //UICollectionView 인스턴스 생성
+        //[frame: .zero]는 CGRect의 초기값으로 프레임의 크기와 위치를 모두 0로 설정한다는 의미
         let collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collection.register(ImageCell.self, forCellWithReuseIdentifier: "imageCell")
         return collection
@@ -62,59 +65,21 @@ class ImageSection: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     
     
-    func setupUI(){
-        self.addSubview(container)
-        container.addArrangedSubview(buttonStackView)
-        container.addArrangedSubview(collectionView)
-        buttonStackView.addArrangedSubview(buttonOfCollectionView)
-        buttonStackView.addArrangedSubview(buttonOfETC)
-        
-        
 
-        container.snp.makeConstraints{ make in
-            make.height.equalTo(10000)
-            //[desc] 4개 방향 모두
-            make.edges.equalToSuperview()
-        }
-        
-//        buttonStackView.backgroundColor = UIColor.systemRed
-        buttonStackView.snp.makeConstraints{make in
-            make.height.equalTo(50)
-        }
-        collectionView.backgroundColor = UIColor.systemMint
-        collectionView.snp.makeConstraints{make in
-            make.left.right.bottom.equalToSuperview()
-        }
-        
-        let fullScreenWidth = UIScreen.main.bounds.width
-        let buttonWidth = fullScreenWidth / 2
-     
-//        buttonOfCollectionView.backgroundColor = UIColor.systemPink
-       
-        buttonOfCollectionView.bounds.size.width = buttonWidth
-        buttonOfCollectionView.bounds.size.height = 50
-        buttonOfCollectionView.layer.addBorder([.right], color: UIColor.systemGray2, width: 1)
-        buttonOfCollectionView.snp.makeConstraints { make in
-            make.width.equalTo(buttonWidth)
-        }
-        
-//        buttonOfETC.backgroundColor = UIColor.systemBlue
-        buttonOfETC.snp.makeConstraints{ make in
-            make.width.equalTo(buttonWidth)
-        }
-    }
     
 }
 
 //MARK : collectionView
 extension ImageSection {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return images.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //[Q]dequeue가 뭘까 진짜 궁금
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCell
-        cell.backgroundColor = UIColor.white
+
+        cell.contentsImageView.image = UIImage(named: images[indexPath.row])
         return cell
     }
     
@@ -149,4 +114,5 @@ extension ImageSection: UICollectionViewDelegateFlowLayout {
     
     
 }
+
 
